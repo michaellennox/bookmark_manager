@@ -1,3 +1,5 @@
+
+
 feature 'Create a new link' do
   scenario 'user creates a link' do
     visit '/links/new'
