@@ -4,7 +4,9 @@ ruby '2.2.1'
 
 gem 'sinatra'
 
-gem 'data_mapper'
-gem 'dm-postgres-adapter'
-gem 'rspec-sinatra'
-gem 'capybara'
+group :test do
+  gem 'data_mapper'
+  gem 'dm-postgres-adapter'
+  gem 'rspec-sinatra'
+  gem 'capybara'
+end
