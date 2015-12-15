@@ -6,6 +6,7 @@ class Link
 
   property :id, Serial
   property :title, String
+  property :tags, String
   property :url, String
 end
 
