@@ -11,5 +11,5 @@ I want to tag my bookmarks
 and see my bookmarks with a certain tag```
 
 ```As a user
-I want to be able to filter my booksmarks by tag
-So I can easily find my``` 
+I want to be able to filter my bookmarks by tag
+So I can easily find my```
