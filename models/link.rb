@@ -6,8 +6,18 @@ class Link
 
   property :id, Serial
   property :title, String
-  property :tags, String
   property :url, String
+
+  has n, :tags, through: Resource
+end
+
+class Tag
+  include DataMapper::Resource
+
+  property :id, Serial
+  property :name, String
+
+  has n, :links, through: Resource
 end
 
 DataMapper.setup(:default, ENV['DATABASE_URL'] || "postgres://localhost/bookmark_manager_#{ENV['RACK_ENV']}")

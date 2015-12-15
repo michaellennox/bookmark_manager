@@ -2,7 +2,7 @@
   <% @links.each do |link| %>
     <li>
       Title: <%= link.title %>
-      Tags: <%= link.tags %>
+      Tags: <%= (link.tags.first || Tag.new(name: "No Tags")).name %>
       URL: <%= link.url %>
     </li>
   <% end %>
