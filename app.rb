@@ -1,8 +1,8 @@
 require 'sinatra/base'
 
-class Bookmark_manager < Sinatra::Base
+class Bookmark < Sinatra::Base
   get '/' do
-    'Hello Bookmark_manager!'
+    'Hello Bookmark!'
   end
 
   # start the server if ruby file executed directly
