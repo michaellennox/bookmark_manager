@@ -1,4 +1,5 @@
 require 'sinatra/base'
+require './models/link.rb'
 
 class Bookmark < Sinatra::Base
   get '/' do
