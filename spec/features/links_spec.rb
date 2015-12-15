@@ -11,4 +11,5 @@ feature 'links' do
       expect(page).to have_content('Google')
     end
   end
+
 end

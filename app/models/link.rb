@@ -8,7 +8,7 @@ class Link
   property :title, String
 end
 
-DataMapper.setup(:default, 'postgres://localhost/garethmckenna')
+DataMapper.setup(:default, 'postgres://localhost/jamie')
 DataMapper.finalize
 DataMapper.auto_upgrade!
 
