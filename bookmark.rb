@@ -1,7 +1,10 @@
 require 'sinatra/base'
 require './models/link.rb'
 
+ENV["RACK_ENV"] ||= "development"
+
 class Bookmark < Sinatra::Base
+
   get '/' do
     'Hello Bookmark!'
   end
