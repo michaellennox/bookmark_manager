@@ -1,5 +1,5 @@
 require 'sinatra/base'
-require './models/link.rb'
+require './data_mapper_setup'
 require 'byebug'
 
 ENV["RACK_ENV"] ||= "development"
@@ -20,10 +20,10 @@ class Bookmark < Sinatra::Base
   end
 
   post '/links' do
-    linkey = Link.create(title: params[:title], url: params[:url])
-    tagey = Tag.create(name: params[:tags])
-    linkey.tags << tagey
-    linkey.save
+    link = Link.create(title: params[:title], url: params[:url])
+    tag = Tag.create(name: params[:tags])
+    link.tags << tag
+    link.save
     redirect '/links'
   end
 
