@@ -5,7 +5,9 @@ feature 'Create a new link' do
     fill_in :title, with: 'Kittens On Google'
     fill_in :url, with: 'http://bit.ly/1YhlvaX'
     click_button 'Submit'
-    visit '/links'
-    expect(page).to have_content 'Kittens On Google'
+    expect(current_path).to eq '/links'
+    within 'ul#links' do
+      expect(page).to have_content 'Kittens On Google'
+    end
   end
 end

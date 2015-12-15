@@ -12,7 +12,7 @@ class Bookmark < Sinatra::Base
   end
 
   get '/links/new' do
-    erb :link_submission
+    erb :'links/new'
   end
 
   post '/links' do
