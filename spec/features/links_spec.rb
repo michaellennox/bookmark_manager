@@ -4,7 +4,7 @@
 
 feature 'links' do
   scenario 'viewing links' do
-    Link.create(URL: 'google.com', title: 'Google')
+    Link.create(url: 'google.com', title: 'Google')
     visit '/links'
     expect(page.status_code).to eq 200
     within 'ul#links' do
