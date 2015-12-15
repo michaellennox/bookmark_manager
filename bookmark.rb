@@ -8,7 +8,16 @@ class Bookmark < Sinatra::Base
 
   get '/links' do
     @links = Link.all
-    erb(:links)
+    erb :links
+  end
+
+  get '/links/new' do
+    erb :link_submission
+  end
+
+  post '/links' do
+    Link.create(title: params[:title], url: params[:url])
+    redirect '/links'
   end
 
   # start the server if ruby file executed directly
