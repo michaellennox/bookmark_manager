@@ -8,7 +8,8 @@ class Link
   property :title, String
 end
 
-DataMapper.setup(:default, 'postgres://localhost/garethmckenna')
+DataMapper.setup(:default, ENV['https://boiling-cove-6084.herokuapp.com/'] || "postgres://localhost/bookmark_manager_#{ENV['RACK_ENV']}")
+
 DataMapper.finalize
 DataMapper.auto_upgrade!
 
