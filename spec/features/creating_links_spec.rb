@@ -9,7 +9,6 @@ feature 'save a website' do
   #   end
   scenario 'add a website to the bookmark manager' do
     visit '/links/add'
-    #click_button('Add link')
     fill_in(:url, with: 'google.com')
     fill_in(:title, with: 'live')
     click_button('Add link')
@@ -17,5 +16,5 @@ feature 'save a website' do
     within 'ul#links' do
         expect(page).to have_content('live')
       end
-  end
+    end
   end
