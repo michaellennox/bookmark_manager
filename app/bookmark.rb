@@ -1,5 +1,6 @@
-require 'sinatra/base'
 ENV["RACK_ENV"] ||= "development"
+
+require 'sinatra/base'
 require './data_mapper_setup'
 
 class Bookmark < Sinatra::Base
@@ -23,6 +24,11 @@ class Bookmark < Sinatra::Base
 
   get '/links/new' do
     erb :'links/new'
+  end
+
+  get '/tags/bubbles' do
+    @links = Link.all
+    erb :'tags/bubbles'
   end
 
   # start the server if ruby file executed directly
