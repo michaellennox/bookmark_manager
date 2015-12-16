@@ -54,7 +54,7 @@ RSpec.configure do |config|
     # `true` in RSpec 4.
     mocks.verify_partial_doubles = true
   end
-
+  #
   RSpec.configure do |config|
     # Everything in this block runs once before all the tests run
     config.before(:suite) do
