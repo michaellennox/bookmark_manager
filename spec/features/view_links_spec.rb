@@ -4,7 +4,7 @@ feature 'view links' do
     visit('/links')
     expect(page.status_code).to eq 200
     within 'ul#links' do
-        expect(page).to have_link('Makers Academy', href: 'http://www.makersacademy.com/')
+      expect(page).to have_link('Makers Academy', href: 'http://www.makersacademy.com/')
     end
   end
 end
