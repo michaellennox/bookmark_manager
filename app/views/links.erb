@@ -2,7 +2,7 @@
   <% @links.each do |link| %>
     <li>
       <a href='<%= link.url %>'><%= link.title %></a>
-      Tags: <%= link.tags.first.name if link.tags.first %>
+      Tags: <%= link.tags.map(&:name).join(' ') if link.tags.first %>
     </li>
   <% end %>
 </ul>
