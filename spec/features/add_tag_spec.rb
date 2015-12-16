@@ -8,4 +8,14 @@ feature 'tagging links' do
     link = Link.first
     expect(link.tags.map(&:tags)).to include('search')
     end
+
+   scenario 'filter links by tag' do
+     visit '/links/add'
+     fill_in(:url, with: 'bubbles.com')
+     fill_in(:title, with: 'Pretty bubbles in the air')
+     fill_in(:tags, with: 'Bubbles')
+     click_button('Add link')
+     visit './tags/bubbles'
+     expect(page).to have_content 'bubbles.com'
+   end
 end
