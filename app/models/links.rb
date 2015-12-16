@@ -8,8 +8,6 @@
 require 'data_mapper'
 require 'dm-postgres-adapter'
 
-# ENV["RACK_ENV"] ||= "development"
-
 class Link
 
   include DataMapper::Resource
