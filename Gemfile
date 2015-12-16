@@ -9,4 +9,5 @@ group :test do
   gem 'dm-postgres-adapter'
   gem 'rspec-sinatra'
   gem 'capybara'
+  gem 'database_cleaner'
 end
