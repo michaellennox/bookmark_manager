@@ -1,4 +1,5 @@
 feature 'seeing links stored' do
+
   scenario 'viewing links on the homepage' do
     Link.create(url: 'http://www.makersacademy.com', title: 'Makers Academy')
     visit('/links')
