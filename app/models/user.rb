@@ -1,4 +1,6 @@
 require 'bcrypt'
+require 'data_mapper'
+require 'dm-postgres-adapter'
 
 class User
 
@@ -6,10 +8,10 @@ class User
 
   property :id, Serial
   property :email, String
-  property :password_hash, String
+  property :password_digest, Text
 
-#   class << self
-#     def count
-#       @count ||= 0
-#     end
+  def password= (password)
+    self.password_digest = BCrypt::Password.create(password)
+  end
+
 end
