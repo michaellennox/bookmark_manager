@@ -14,6 +14,12 @@ class Bookmark < Sinatra::Base
     erb :'links/index'
   end
 
+  get '/tags/:name' do
+    tag = Tag.first(name: params[:name])
+    @links = tag.links
+    erb :'links/index'
+  end
+
   get '/links/new' do
     erb :'links/new'
   end
