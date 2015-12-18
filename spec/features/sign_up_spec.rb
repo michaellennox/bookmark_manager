@@ -11,10 +11,10 @@ feature 'User sign up' do
 
   scenario 'raises visible error when mismatched password' do
     visit '/users/new'
-    expect(page).not_to have_content 'Password does not match confirmation'
+    expect(page).not_to have_content 'Password confirmation incorrect'
     sign_in(password_confirmation: 'Kittens')
     expect(current_path).to eq '/users/new'
-    expect(page).to have_content 'Invalid email or password'
+    expect(page).to have_content 'Password confirmation incorrect'
   end
 
   scenario 'after mismatched password, email is persisted in form' do
@@ -26,5 +26,12 @@ feature 'User sign up' do
   scenario 'raises error if email format is wrong' do
     sign_in(email: '')
     expect(current_path).to eq '/users/new'
+  end
+
+  scenario 'fails if you sign up twice with same email' do
+    sign_in
+    expect{sign_in}.not_to change(User, :count)
+    expect(current_path).to eq '/users/new'
+    expect(page).to have_content 'Email already registered'
   end
 end

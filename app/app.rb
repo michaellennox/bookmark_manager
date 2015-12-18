@@ -16,14 +16,15 @@ class Bookmark < Sinatra::Base
   end
 
   post '/users' do
-    user = User.create(params)
-    unless user.id
-      flash[:error] = 'Invalid email or password'
+    user = User.new(params)
+    if user.save
+      session[:user_id] = user.id
+      redirect '/links'
+    else
+      flash[:error] = user.errors.values.join(' ')
       flash[:email] = params[:email]
       redirect '/users/new'
     end
-    session[:user_id] = user.id
-    redirect '/links'
   end
 
   get '/links' do

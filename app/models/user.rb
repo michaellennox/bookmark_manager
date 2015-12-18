@@ -9,12 +9,12 @@ class User
 
   include DataMapper::Resource
   property :id, Serial
-  property :email, String
+  property :email, String, required: true
   property :password_digest, Text
 
-  validates_confirmation_of :password
-  validates_format_of :email, :as => :email_address
-  validates_length_of :email, :min => 1
+  validates_confirmation_of :password, message: 'Password confirmation incorrect'
+  validates_format_of :email, as: :email_address, message: 'Please enter a valid email address'
+  validates_uniqueness_of :email, message: 'Email already registered'
 
   def password=(password)
     @password = password
