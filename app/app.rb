@@ -5,6 +5,7 @@ require_relative 'data_mapper_setup'
 require 'byebug'
 
 class Bookmark < Sinatra::Base
+  use Rack::MethodOverride
 
   enable :sessions
   register Sinatra::Flash
@@ -23,6 +24,16 @@ class Bookmark < Sinatra::Base
     else
       redirect '/session/new'
     end
+  end
+
+  get '/session/end' do
+    erb :'/session/end'
+  end
+
+  delete '/session' do
+    flash[:goodbye] = "Goodbye, #{user_name.email}"
+    session[:user_id] = nil
+    redirect '/links'
   end
 
   get '/users/new' do

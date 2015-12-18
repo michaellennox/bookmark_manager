@@ -15,3 +15,9 @@ def sign_in(email: 'andy_htun@hotmail.com', password: 'Apples')
   fill_in :password, with: password
   click_button 'Sign in'
 end
+
+def sign_out
+  visit '/session/end'
+  expect(page.status_code).to eq(200)
+  click_button 'Sign out'
+end
