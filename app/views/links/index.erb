@@ -1,4 +1,4 @@
-<h1>Add new link</h1>
+<h1>Bookmarks</h1>
 <ul id='links'>
     <% @links.each do |link| %>
     <li>
@@ -8,3 +8,6 @@
     </li>
     <% end %>
 </ul>
+<form action="/links/add" method="get">
+<input type="submit" value="Add new link">
+</form>

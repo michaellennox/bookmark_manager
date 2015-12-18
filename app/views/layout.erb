@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title> Bookmark Manager </title>
+</head>
+<body>
+  <% if user_name %>
+  <h1> Welcome, <%= user_name %> </h1>
+  <% end %>
+    <%= yield %>
+</body>
