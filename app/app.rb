@@ -21,7 +21,7 @@ class Bookmark < Sinatra::Base
       session[:user_id] = user.id
       redirect '/links'
     else
-      flash[:error] = user.errors.values.join(' ')
+      flash[:error] = user.errors.full_messages.join('. ')
       flash[:email] = params[:email]
       redirect '/users/new'
     end
