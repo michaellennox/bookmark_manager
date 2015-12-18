@@ -1,18 +1,15 @@
 ENV['RACK_ENV'] ||= "development"
 require 'sinatra/base'
+require 'sinatra/flash'
 require_relative 'data_mapper_setup'
 require 'byebug'
 
 class Bookmark < Sinatra::Base
 
   enable :sessions
+  register Sinatra::Flash
 
   set :session_secret, 'super secret'
- helpers do
-   def user_name
-     @user_name ||= User.get(session[:user_id])
-   end
- end
 
   get '/users/new' do
     erb :'users/new'
@@ -20,8 +17,12 @@ class Bookmark < Sinatra::Base
 
   post '/users' do
     user = User.create(params)
+    unless user.id
+      flash[:error] = 'Password does not match confirmation'
+      redirect '/users/new'
+    end
     session[:user_id] = user.id
-    redirect to('/links')
+    redirect '/links'
   end
 
   get '/links' do
@@ -35,11 +36,9 @@ class Bookmark < Sinatra::Base
 
   post '/links' do
     link = Link.create(url: params[:url], title: params[:title])
-    # tag = Tag.create(tags: params[:tags])
-    # link.tags << tag
     params[:tags].split.each do |tag|
-    link.tags << Tag.create(tags: tag)
-  end
+      link.tags << Tag.create(tags: tag)
+    end
     link.save
     redirect '/links'
   end
@@ -50,14 +49,12 @@ class Bookmark < Sinatra::Base
     erb :'links/index'
   end
 
-  # get '/tags/bubbles' do
-  #   @links = Link.all(tags: [tags: 'bubbles'])
-  #   # @bubbles = @links.tags.map(&:tags)
-  #   # @result = ""
-  #   # @bubbles.select{|a| @result << a if a == 'bubbles' || 'Bubbles'}
-  #   # # require 'byebug'; byebug
-  #   erb :'links/index'
-  # end
+  helpers do
+   def user_name
+     @user_name ||= User.get(session[:user_id])
+   end
+  end
+
 
   # start the server if ruby file executed directly
   run! if app_file == $0

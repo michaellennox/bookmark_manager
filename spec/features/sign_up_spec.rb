@@ -8,11 +8,18 @@ feature 'User sign up' do
   scenario 'no new user is created on mismatched password' do
     expect{sign_in(password_confirmation: 'Bananas')}.not_to change(User, :count)
   end
-end
 
-# scenario 'check email for user is correct in database' do
-#   sign_in
-#   click_button 'Sign up'
-#   user = User.first
-#   expect(user.email(&:email))
-# end
+  scenario 'raises visible error when mismatched password' do
+    visit '/users/new'
+    expect(page).not_to have_content 'Password does not match confirmation'
+    sign_in(password_confirmation: 'Kittens')
+    expect(current_path).to eq '/users/new'
+    expect(page).to have_content 'Password does not match confirmation'
+  end
+
+  scenario 'after mismatched password, email is persisted in form' do
+    sign_in(password_confirmation: 'Kittens')
+    expect(current_path).to eq '/users/new'
+    expect(page).to have_content 'andy_htun@hotmail.com'
+  end
+end
