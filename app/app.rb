@@ -18,7 +18,7 @@ class Bookmark < Sinatra::Base
   post '/users' do
     user = User.create(params)
     unless user.id
-      flash[:error] = 'Password does not match confirmation'
+      flash[:error] = 'Invalid email or password'
       flash[:email] = params[:email]
       redirect '/users/new'
     end
