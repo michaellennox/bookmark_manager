@@ -20,6 +20,10 @@ class User
     @password = password
     self.password_digest = BCrypt::Password.create(password)
   end
+
+  def password
+    @password ||= BCrypt::Password.new(password_digest)
+  end
 end
 
 DataMapper.finalize
