@@ -19,6 +19,7 @@ class Bookmark < Sinatra::Base
     user = User.create(params)
     unless user.id
       flash[:error] = 'Password does not match confirmation'
+      flash[:email] = params[:email]
       redirect '/users/new'
     end
     session[:user_id] = user.id

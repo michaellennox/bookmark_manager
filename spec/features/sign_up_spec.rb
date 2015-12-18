@@ -20,6 +20,6 @@ feature 'User sign up' do
   scenario 'after mismatched password, email is persisted in form' do
     sign_in(password_confirmation: 'Kittens')
     expect(current_path).to eq '/users/new'
-    expect(page).to have_content 'andy_htun@hotmail.com'
+    expect(page).to have_selector("input[value='andy_htun@hotmail.com']")
   end
 end
