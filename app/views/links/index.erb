@@ -3,6 +3,7 @@
     <li>
       Title: <%= link.title %>
       URL:   <%= link.url   %>
+      Tags: <%= link.tags.map(&:name).map{|tag| tag.insert(0, '#')}.join(' ') if link.tags %>
     </li>
   <% end %>
 </ul>
