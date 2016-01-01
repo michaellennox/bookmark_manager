@@ -28,4 +28,8 @@ I would like to be able to sign up for an account
 As a system maintainer
 So that I don't have to deal with lots of incorrect user passwords
 I would like to ensure users confirm their passwords on sign up
+
+As a user
+So that I can have instant feedback on a failed signup
+I would like an error message to appear if I enter incorrect details
 ```
