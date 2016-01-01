@@ -8,7 +8,7 @@ feature 'Viewing Links' do
   scenario 'User can see existing links on links page' do
     visit '/links'
     within 'ul#links' do
-      expect(page).to have_content 'My Site'
+      expect(page).to have_content 'My Site\'s Home'
     end
   end
 
