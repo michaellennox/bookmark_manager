@@ -24,4 +24,8 @@ I would like to filter links by tag
 As a user
 So that I can manage my own bookmark manager
 I would like to be able to sign up for an account
+
+As a system maintainer
+So that I don't have to deal with lots of incorrect user passwords
+I would like to ensure users confirm their passwords on sign up
 ```
