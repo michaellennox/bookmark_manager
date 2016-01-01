@@ -6,6 +6,8 @@ require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
 
+require './app/models/link'
+
 Capybara.app = BookmarkManager
 
 RSpec.configure do |config|
