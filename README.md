@@ -16,4 +16,12 @@ I would like to add the site's address and title to my bookmark manager
 As a time-pressed user
 So that I can organise my many links into different categories for ease of search
 I would like to tag links in my bookmark manager
+
+As a time-pressed user
+So that I can quickly find links on a particular topic
+I would like to filter links by tag
+
+As a user
+So that I can manage my own bookmark manager
+I would like to be able to sign up for an account
 ```

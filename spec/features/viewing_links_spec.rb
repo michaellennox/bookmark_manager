@@ -1,5 +1,4 @@
 feature 'Viewing Links' do
-
   before(:each) do
     Link.create(url: 'http://www.michaellennox.me/', title: 'My Site\'s Home', tags: [Tag.first_or_create(name: 'home')])
     Link.create(url: 'http://www.michaellennox.me/blog', title: 'My Site\'s Blog', tags: [Tag.first_or_create(name: 'blog')])
