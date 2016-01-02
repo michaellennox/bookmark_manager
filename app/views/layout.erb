@@ -8,8 +8,12 @@
   <% if current_user %>
     Hi, <%= current_user.email %>
   <% end %>
-  <% if flash[:error] %>
-    <div id='flash'><%= flash[:error] %></div>
+  <% if flash[:errors] %>
+    <ul id='errors'>
+      <% flash[:errors].each do |error|%>
+        <li><%= error %></li>
+      <% end %>
+    </ul>
   <% end %>
   <%= yield %>
 </body>

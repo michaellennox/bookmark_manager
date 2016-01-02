@@ -5,8 +5,8 @@ class User
   include BCrypt
   attr_accessor :password_confirmation
 
-  property :id, Serial
-  property :email, String
+  property :id,              Serial
+  property :email,           String, required: true, unique: true, format: :email_address
   property :password_digest, Text
 
   validates_confirmation_of :password

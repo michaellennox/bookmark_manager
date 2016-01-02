@@ -31,5 +31,5 @@ I would like to ensure users confirm their passwords on sign up
 
 As a user
 So that I can have instant feedback on a failed signup
-I would like an error message to appear if I enter incorrect details
+I would like a relevant error message to appear if I enter incorrect details
 ```
